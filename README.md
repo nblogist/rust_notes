@@ -1,5 +1,6 @@
 # RUST
 
+```rust
 cargo new hello_world
 cargo build
 cargo build - -release
@@ -7,6 +8,7 @@ cargo check
 cargo run
 cargo doc - - open
 cargo clippy (to get warnings about potentially useless code like return and semicolon)
+```
 
 ### VS Code - Extensions:
 
@@ -27,7 +29,7 @@ const MAX_POINTS: u32 = 100_000;
 
 ### Data Types:
 
-2 types: **scalar** & **compound** 
+2 types: **scalar** & **compound**
 
 **SCALAR:**
 
