@@ -21,7 +21,9 @@ cargo clippy (to get warnings about potentially useless code like return and sem
 
 **Difference** between an **immutable variable** and a **const** in rust is that a const can't be assigned a value that will be computed on run time and its convention is that the name is in ALL CAPS
 
+```rust
 const MAX_POINTS: u32 = 100_000;
+```
 
 ### let vs mut
 
@@ -101,9 +103,11 @@ TYPE ANNOTATION IS MANDATORY
 
 VALUE SHOULD BE A LITERAL
 
-## Strings:
+## Strings
 
+```english
 There are total 6 types of strings in std lib but mostly we use 2:
+```
 
 1. string slice `str` will almost always see it as borrowed string slice `&str` 
 
@@ -116,7 +120,9 @@ There are total 6 types of strings in std lib but mostly we use 2:
 
     ![RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2012.png](RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2012.png)
 
+    ```english
     Strings can't be indexed by character position so my_string[2] is invalid
+    ```
 
     - **THINGS YOU CAN DO IF YOU KINDA WANT TO INDEX THROUGH STRING**
 
@@ -136,7 +142,9 @@ There are total 6 types of strings in std lib but mostly we use 2:
 
         ![RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2017.png](RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2017.png)
 
+    ```english
     you can also use .nth(index) along with an iterator to be able to go to an index
+    ```
 
     1. A literal string is always a borrowed string slice `&str` 
 
@@ -174,7 +182,9 @@ Expressions never end with ;
 
 ![RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2024.png](RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2024.png)
 
-RUST implicitly returns last expression as return value like: 
+```english
+RUST implicitly returns last expression as return value like:
+```
 
 ![RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2025.png](RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2025.png)
 
@@ -184,11 +194,14 @@ but if we ***add a return before 5;*** then it will be fine and will compile.
 
 ## [Flow control:](https://doc.rust-lang.org/book/ch03-05-control-flow.html)
 
+```english
 SOME POINTS ABOUT IF:
 1. everything between `if` and `{` is a condition
 2. Condition must evaluate to condition (RUST hate type coercion)
 3. IF is an `expression` which means it returns value
+```
 
+```english
 SOME POINTS TO REMEMBER EVEN MORE!!
 
 1. There are no ; after the branch values so values can be returned as tail value
@@ -196,6 +209,7 @@ SOME POINTS TO REMEMBER EVEN MORE!!
 3. all the arms (blocks from if and else) return the same type
 4. `;` At the end of the entire IF expression; (IT IS MANDATORY TO PUT IT IF YOU USE THE VALUE, else you can drop it) - but make it a practice to always put ; after if
 5: `{}` are mandatory
+```
 
 if:
 
@@ -292,13 +306,17 @@ s2 exists on stack but is uninitialized now
 
 ![RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2041.png](RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2041.png)
 
+```english
 Since s1 is immutable we can't reassign it to another value and we can't use it anymore. BUT you can still shadow it (but remember rules of shadowing told below)
+```
 
 like this works:
 
 ![RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2042.png](RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2042.png)
 
+```english
 To make a copy of it, instead of moving just use `s1.clone()`
+```
 
 clone does the following under the hood (copy stuff in stack and heap)
 
@@ -337,11 +355,15 @@ under the hood:
 
 in rust you almost never have to care about pointers cause it automatically handles creation and destruction of it and make sure they are always valid (using lifetimes) andddd you can never point to null 
 
-Compiler won't let you create a reference that outlive the data it is ultimately references 
+```english
+Compiler won't let you create a reference that outlive the data it is ultimately references
+```
 
+```english
 References defaults to immutable EVEN IF the value they refer to are immutable
+```
 
-## Dereferencing:
+## Dereferencing
 
 *for calling methods:*
 
@@ -353,7 +375,9 @@ usually when trying to get a value from a **reference** we need to *de reference
 
 ![RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2050.png](RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2050.png)
 
-[What is what](https://www.notion.so/544f2f4e671b4ec79caff52ff71ae74f)
+## What is what
+
+![RUST%20c4f463e3251140979dafc776e27aaacb/table.png](RUST%20c4f463e3251140979dafc776e27aaacb/table.png)
 
 dereferncing to get actual value
 
@@ -361,10 +385,12 @@ dereferncing to get actual value
 
 ![RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2052.png](RUST%20c4f463e3251140979dafc776e27aaacb/Untitled%2052.png)
 
+```english
 **YOU CAN HAVE Either (for one variable)
 
 1. Exactly one mutable reference
 2. Any number of immutable references**
+```
 
 it is to make sure that different mutable references can't change the value of a variable, and cause memory problems, in usual cases this will require some sort of locking but rust saves us from those stuff
 
@@ -378,9 +404,11 @@ not sure what to write the [video](https://www.udemy.com/course/ultimate-rust-cr
 
 # Collections:
 
+```english
 #[derive(Debug)] // !This enables using the debugging format string "{:?}"
+```
 
-## Notes (OLD):
+## Notes (OLD)
 
 - macros usually go with ! mark at end
 - **LET** makes immutable variables here
